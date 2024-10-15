@@ -1,72 +1,240 @@
 <!DOCTYPE html>
 <html>
     <title>Lab</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #2e2e2e;
+    color: #f5f5f5;
+}
+
+header {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f1c40f;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.instructions,
+.locations,
+.score,
+.help-click,
+.help-report {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #3b3b3b;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.instructions:hover,
+.locations:hover,
+.score:hover,
+.help-click:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+    color: #ecdbff;
+}
+
+.help-report {
+    display: none;
+}
+
+.game-field {
+    display: grid;
+    grid-template-columns: repeat(6, 80px);
+    /* 6 columns of 80px width */
+    grid-template-rows: repeat(6, 80px);
+    /* 6 rows of 80px height */
+    gap: 10px;
+    /* Adds space between the tiles */
+    justify-content: center;
+    margin-top: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.game-tile {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #1abc9c;
+    border: 2px solid #16a085;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-tile:hover {
+    background-color: #16a085;
+    transform: translateY(-5px);
+    border-color: #1abc9c;
+    cursor: pointer;
+}
+
+.game-tile img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #e67e22;
+    transform: translateY(-3px);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #bdc3c7;
+}
+
+span {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+
+    </style>
     <body>
-        <link rel="stylesheet" href="stylesheet.css">
         <h1>Venkata Durga Yenumula goes on safair</h1>
         <div class="game-info">
-            <p>Click on the locations to find rare animals, watch out for the lion!</p>
-            <p id="locations">Number of locations checked is zero.</p>
-            <p id="score">Score is zero.</p>
-            <p>Click for help.</p>
-            <p id="help">Help report</p>
+            <div class="instructions">Click on the locations to find rare animals, watch out for the lion!</div>
+
+            <div id="locations" class="locations">Number of locations checked is zero.</div>
+        
+            <div id="score" class="score">Score is zero.</div>
+        
+            <div class="help-click">Click for help.</div>
+        
+            <div id="help" class="help-report">Help report</div>
+        
         </div>
         <div class="game-field">
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
-        
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
-        
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
-        
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
-        
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
-        
-            <div class="row">
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-                <div class="location tree"></div>
-            </div>
+            <div class="game-tile"><img id="img-0" src="tree.jpg" alt="Tree" onclick="check(0)"></div>
+            <div class="game-tile"><img id="img-1" src="tree.jpg" alt="Tree" onclick="check(1)"></div>
+            <div class="game-tile"><img id="img-2" src="tree.jpg" alt="Tree" onclick="check(2)"></div>
+            <div class="game-tile"><img id="img-3" src="tree.jpg" alt="Tree" onclick="check(3)"></div>
+            <div class="game-tile"><img id="img-4" src="tree.jpg" alt="Tree" onclick="check(4)"></div>
+            <div class="game-tile"><img id="img-5" src="tree.jpg" alt="Tree" onclick="check(5)"></div>
+    
+            <div class="game-tile"><img id="img-6" src="tree.jpg" alt="Tree" onclick="check(6)"></div>
+            <div class="game-tile"><img id="img-7" src="tree.jpg" alt="Tree" onclick="check(7)"></div>
+            <div class="game-tile"><img id="img-8" src="tree.jpg" alt="Tree" onclick="check(8)"></div>
+            <div class="game-tile"><img id="img-9" src="tree.jpg" alt="Tree" onclick="check(9)"></div>
+            <div class="game-tile"><img id="img-10" src="tree.jpg" alt="Tree" onclick="check(10)"></div>
+            <div class="game-tile"><img id="img-11" src="tree.jpg" alt="Tree" onclick="check(11)"></div>
+    
+            <div class="game-tile"><img id="img-12" src="tree.jpg" alt="Tree" onclick="check(12)"></div>
+            <div class="game-tile"><img id="img-13" src="tree.jpg" alt="Tree" onclick="check(13)"></div>
+            <div class="game-tile"><img id="img-14" src="tree.jpg" alt="Tree" onclick="check(14)"></div>
+            <div class="game-tile"><img id="img-15" src="tree.jpg" alt="Tree" onclick="check(15)"></div>
+            <div class="game-tile"><img id="img-16" src="tree.jpg" alt="Tree" onclick="check(16)"></div>
+            <div class="game-tile"><img id="img-17" src="tree.jpg" alt="Tree" onclick="check(17)"></div>
+    
+            <div class="game-tile"><img id="img-18" src="tree.jpg" alt="Tree" onclick="check(18)"></div>
+            <div class="game-tile"><img id="img-19" src="tree.jpg" alt="Tree" onclick="check(19)"></div>
+            <div class="game-tile"><img id="img-20" src="tree.jpg" alt="Tree" onclick="check(20)"></div>
+            <div class="game-tile"><img id="img-21" src="tree.jpg" alt="Tree" onclick="check(21)"></div>
+            <div class="game-tile"><img id="img-22" src="tree.jpg" alt="Tree" onclick="check(22)"></div>
+            <div class="game-tile"><img id="img-23" src="tree.jpg" alt="Tree" onclick="check(23)"></div>
+    
+            <div class="game-tile"><img id="img-24" src="tree.jpg" alt="Tree" onclick="check(24)"></div>
+            <div class="game-tile"><img id="img-25" src="tree.jpg" alt="Tree" onclick="check(25)"></div>
+            <div class="game-tile"><img id="img-26" src="tree.jpg" alt="Tree" onclick="check(26)"></div>
+            <div class="game-tile"><img id="img-27" src="tree.jpg" alt="Tree" onclick="check(27)"></div>
+            <div class="game-tile"><img id="img-28" src="tree.jpg" alt="Tree" onclick="check(28)"></div>
+            <div class="game-tile"><img id="img-29" src="tree.jpg" alt="Tree" onclick="check(29)"></div>
+    
+            <div class="game-tile"><img id="img-30" src="tree.jpg" alt="Tree" onclick="check(30)"></div>
+            <div class="game-tile"><img id="img-31" src="tree.jpg" alt="Tree" onclick="check(31)"></div>
+            <div class="game-tile"><img id="img-32" src="tree.jpg" alt="Tree" onclick="check(32)"></div>
+            <div class="game-tile"><img id="img-33" src="tree.jpg" alt="Tree" onclick="check(33)"></div>
+            <div class="game-tile"><img id="img-34" src="tree.jpg" alt="Tree" onclick="check(34)"></div>
+            <div class="game-tile"><img id="img-35" src="tree.jpg" alt="Tree" onclick="check(35)"></div>
+    
         
             
         </div>
+        <script>
+           let ids = Array.from({ length: 36 }, (_, i) => `img-${i}`);
+        let score = 0;
+        let locationsChecked = 0;
+        let lastLocation = 0;
+        let zebraLocations = [1, 8, 12, 22, 34];
+        let lionLocation = 14;
+        let gameOver = false;
+
+        // Function to handle clicks on images
+        function check(position) {
+            if (gameOver) return;
+
+            const imgElement = document.getElementById(ids[position]);
+
+            if (position === lionLocation) {
+                imgElement.src = 'Lion.jpg';  
+                gameOver = true;              
+                score -= 2;
+            } else if (zebraLocations.includes(position)) {
+                imgElement.src = 'Zebra.jpg'; 
+                score += 4;
+            } else {
+                imgElement.src = 'elephant.jpg'; 
+                score += 1;
+            }
+
+            locationsChecked++;
+            document.getElementById("locations").innerText =`Number of locations checked is ${locationsChecked}.`;
+            document.getElementById("score").innerText =` Score is ${score}.`;
+
+            lastLocation = position;
+            function help() {
+                const row = Math.floor(lastLocation / 6);
+                const col = lastLocation % 6;
+                let hint = "It's grey."; // Default hint
+
+                // Check if the lion is nearby
+                const lionRow = Math.floor(lionLocation / 6);
+                const lionCol = lionLocation % 6;
+                if (Math.abs(row - lionRow) <= 1 && Math.abs(col - lionCol) <= 1) {
+                    hint = "Rawr!";
+                }
+
+                // Check if zebras are nearby
+                const nearbyLocations = [lastLocation - 1, lastLocation + 1, lastLocation - 6, lastLocation + 6].filter(pos => pos >= 0 && pos < 36);
+                if (nearbyLocations.some(loc => zebraLocations.includes(loc))) {
+                    hint = "I see stripes.";
+                }
+
+                document.getElementById("help").innerText = hint;
+                document.getElementById("help").style.display = "block";
+            }
+
+            document.querySelector('.help-click').onclick = help;
+        }
+
+        </script>
+    
         </body>
         </html>
