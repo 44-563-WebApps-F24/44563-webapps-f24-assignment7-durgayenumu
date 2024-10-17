@@ -3,49 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Safari</title>
+    <title>Sravya Geethika goes on safari</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #ede6e6;
-            color: hsl(120, 100%, 0%);
+            padding: 0;
+            background-color: #f7f7f7;
             text-align: center;
         }
         h1 {
-            text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #f10fa9;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        .instructions,
-        .locations,
-        .score,
-        .help-click,
-        .help-report {
-            margin: 20px 0;
+            background-color: #4CAF50;
+            color: white;
             padding: 20px;
-            border-radius: 8px;
-            background-color: #3b3b3b;
-            color: #ecf0f1;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
         }
-        .instructions:hover,
-        .locations:hover,
-        .score:hover,
-        .help-click:hover {
-            background-color: #34495e;
-            transform: scale(1.05);
-            color: #ecdbff;
-        }
-        .help-report {
-            display: none;
-        }
-        
         .container {
             display: flex;
             flex-direction: column;
@@ -77,7 +48,7 @@
 </head>
 <body>
     <header>
-        <h1>Venkata Durga Yenumula goes on Safair </h1>
+        <h1>Venkata Durga Yenumula goes on safari</h1>
     </header>
 
     <div class="container">
@@ -95,127 +66,119 @@
         <div class="box" id="help">
             <p>Help report</p>
         </div>
+        <button onclick="restartGame()">Restart Game</button>
     </div>
 
     <div class="game-field">
-        
+        <!-- Game Field with IDs and OnClick -->
         <div class="row">
-            <div class="gamebox"><img id="img0" src="Images\tree.jpg" alt="tree" onclick="check(0)"></div>
-            <div class="gamebox"><img id="img1" src="Images\tree.jpg" alt="tree" onclick="check(1)"></div>
-            <div class="gamebox"><img id="img2" src="Images\tree.jpg" alt="tree" onclick="check(2)"></div>
-            <div class="gamebox"><img id="img3" src="Images\tree.jpg" alt="tree" onclick="check(3)"></div>
-            <div class="gamebox"><img id="img4" src="Images\tree.jpg" alt="tree" onclick="check(4)"></div>
-            <div class="gamebox"><img id="img5" src="Images\tree.jpg" alt="tree" onclick="check(5)"></div>
-        </div>
-       
-        <div class="row">
-            <div class="gamebox"><img id="img6" src="Images\tree.jpg" alt="tree" onclick="check(6)"></div>
-            <div class="gamebox"><img id="img7" src="Images\tree.jpg" alt="tree" onclick="check(7)"></div>
-            <div class="gamebox"><img id="img8" src="Images\tree.jpg" alt="tree" onclick="check(8)"></div>
-            <div class="gamebox"><img id="img9" src="Images\tree.jpg" alt="tree" onclick="check(9)"></div>
-            <div class="gamebox"><img id="img10" src="Images\tree.jpg" alt="tree" onclick="check(10)"></div>
-            <div class="gamebox"><img id="img11" src="Images\tree.jpg" alt="tree" onclick="check(11)"></div>
+            <div class="gamebox"><img id="img0" src="Images/tree.jpg" alt="tree" onclick="check(0)"></div>
+            <div class="gamebox"><img id="img1" src="Images/tree.jpg" alt="tree" onclick="check(1)"></div>
+            <div class="gamebox"><img id="img2" src="Images/tree.jpg" alt="tree" onclick="check(2)"></div>
+            <div class="gamebox"><img id="img3" src="Images/tree.jpg" alt="tree" onclick="check(3)"></div>
+            <div class="gamebox"><img id="img4" src="Images/tree.jpg" alt="tree" onclick="check(4)"></div>
+            <div class="gamebox"><img id="img5" src="Images/tree.jpg" alt="tree" onclick="check(5)"></div>
         </div>
         <div class="row">
-            <div class="gamebox"><img id="img12" src="Images\tree.jpg" alt="tree" onclick="check(12)"></div>
-            <div class="gamebox"><img id="img13" src="Images\tree.jpg" alt="tree" onclick="check(13)"></div>
-            <div class="gamebox"><img id="img14" src="Images\tree.jpg" alt="tree" onclick="check(14)"></div>
-            <div class="gamebox"><img id="img15" src="Images\tree.jpg" alt="tree" onclick="check(15)"></div>
-            <div class="gamebox"><img id="img16" src="Images\tree.jpg" alt="tree" onclick="check(16)"></div>
-            <div class="gamebox"><img id="img17" src="Images\tree.jpg" alt="tree" onclick="check(17)"></div>
+            <div class="gamebox"><img id="img6" src="Images/tree.jpg" alt="tree" onclick="check(6)"></div>
+            <div class="gamebox"><img id="img7" src="Images/tree.jpg" alt="tree" onclick="check(7)"></div>
+            <div class="gamebox"><img id="img8" src="Images/tree.jpg" alt="tree" onclick="check(8)"></div>
+            <div class="gamebox"><img id="img9" src="Images/tree.jpg" alt="tree" onclick="check(9)"></div>
+            <div class="gamebox"><img id="img10" src="Images/tree.jpg" alt="tree" onclick="check(10)"></div>
+            <div class="gamebox"><img id="img11" src="Images/tree.jpg" alt="tree" onclick="check(11)"></div>
         </div>
         <div class="row">
-            <div class="gamebox"><img id="img18" src="Images\tree.jpg" alt="tree" onclick="check(18)"></div>
-            <div class="gamebox"><img id="img19" src="Images\tree.jpg" alt="tree" onclick="check(19)"></div>
-            <div class="gamebox"><img id="img20" src="Images\tree.jpg" alt="tree" onclick="check(20)"></div>
-            <div class="gamebox"><img id="img21" src="Images\tree.jpg" alt="tree" onclick="check(21)"></div>
-            <div class="gamebox"><img id="img22" src="Images\tree.jpg" alt="tree" onclick="check(22)"></div>
-            <div class="gamebox"><img id="img23" src="Images\tree.jpg" alt="tree" onclick="check(23)"></div>
+            <div class="gamebox"><img id="img12" src="Images/tree.jpg" alt="tree" onclick="check(12)"></div>
+            <div class="gamebox"><img id="img13" src="Images/tree.jpg" alt="tree" onclick="check(13)"></div>
+            <div class="gamebox"><img id="img14" src="Images/tree.jpg" alt="tree" onclick="check(14)"></div>
+            <div class="gamebox"><img id="img15" src="Images/tree.jpg" alt="tree" onclick="check(15)"></div>
+            <div class="gamebox"><img id="img16" src="Images/tree.jpg" alt="tree" onclick="check(16)"></div>
+            <div class="gamebox"><img id="img17" src="Images/tree.jpg" alt="tree" onclick="check(17)"></div>
         </div>
         <div class="row">
-            <div class="gamebox"><img id="img24" src="Images\tree.jpg" alt="tree" onclick="check(24)"></div>
-            <div class="gamebox"><img id="img25" src="Images\tree.jpg" alt="tree" onclick="check(25)"></div>
-            <div class="gamebox"><img id="img26" src="Images\tree.jpg" alt="tree" onclick="check(26)"></div>
-            <div class="gamebox"><img id="img27" src="Images\tree.jpg" alt="tree" onclick="check(27)"></div>
-            <div class="gamebox"><img id="img28" src="Images\tree.jpg" alt="tree" onclick="check(28)"></div>
-            <div class="gamebox"><img id="img29" src="Images\tree.jpg" alt="tree" onclick="check(29)"></div>
+            <div class="gamebox"><img id="img18" src="Images/tree.jpg" alt="tree" onclick="check(18)"></div>
+            <div class="gamebox"><img id="img19" src="Images/tree.jpg" alt="tree" onclick="check(19)"></div>
+            <div class="gamebox"><img id="img20" src="Images/tree.jpg" alt="tree" onclick="check(20)"></div>
+            <div class="gamebox"><img id="img21" src="Images/tree.jpg" alt="tree" onclick="check(21)"></div>
+            <div class="gamebox"><img id="img22" src="Images/tree.jpg" alt="tree" onclick="check(22)"></div>
+            <div class="gamebox"><img id="img23" src="Images/tree.jpg" alt="tree" onclick="check(23)"></div>
         </div>
         <div class="row">
-            <div class="gamebox"><img id="img30" src="Images\tree.jpg" alt="tree" onclick="check(30)"></div>
-            <div class="gamebox"><img id="img31" src="Images\tree.jpg" alt="tree" onclick="check(31)"></div>
-            <div class="gamebox"><img id="img32" src="Images\tree.jpg" alt="tree" onclick="check(32)"></div>
-            <div class="gamebox"><img id="img33" src="Images\tree.jpg" alt="tree" onclick="check(33)"></div>
-            <div class="gamebox"><img id="img34" src="Images\tree.jpg" alt="tree" onclick="check(34)"></div>
-            <div class="gamebox"><img id="img35" src="Images\tree.jpg" alt="tree" onclick="check(35)"></div>
+            <div class="gamebox"><img id="img24" src="Images/tree.jpg" alt="tree" onclick="check(24)"></div>
+            <div class="gamebox"><img id="img25" src="Images/tree.jpg" alt="tree" onclick="check(25)"></div>
+            <div class="gamebox"><img id="img26" src="Images/tree.jpg" alt="tree" onclick="check(26)"></div>
+            <div class="gamebox"><img id="img27" src="Images/tree.jpg" alt="tree" onclick="check(27)"></div>
+            <div class="gamebox"><img id="img28" src="Images/tree.jpg" alt="tree" onclick="check(28)"></div>
+            <div class="gamebox"><img id="img29" src="Images/tree.jpg" alt="tree" onclick="check(29)"></div>
+        </div>
+        <div class="row">
+            <div class="gamebox"><img id="img30" src="Images/tree.jpg" alt="tree" onclick="check(30)"></div>
+            <div class="gamebox"><img id="img31" src="Images/tree.jpg" alt="tree" onclick="check(31)"></div>
+            <div class="gamebox"><img id="img32" src="Images/tree.jpg" alt="tree" onclick="check(32)"></div>
+            <div class="gamebox"><img id="img33" src="Images/tree.jpg" alt="tree" onclick="check(33)"></div>
+            <div class="gamebox"><img id="img34" src="Images/tree.jpg" alt="tree" onclick="check(34)"></div>
+            <div class="gamebox"><img id="img35" src="Images/tree.jpg" alt="tree" onclick="check(35)"></div>
         </div>
     </div>
 
     <script>
-        const ids = [...Array(36).keys()].map(i => `img${i}`);  
+        const ids = [...Array(36).keys()].map(i => `img${i}`);  // Image IDs (img0 to img35)
         let score = 0;
         let locationsVisited = 0;
-        let lastLocation = 0;
-        const zebraLocations = [1, 8, 12, 22, 34];
-        const lionLocation = 14;
+        let lionLocation = Math.floor(Math.random() * 36);  // Random lion position
         let gameOver = false;
 
-        
+        // Check function to handle clicks
         function check(position) {
-            if (gameOver) return; 
+            if (gameOver) return;  // If game is over, do nothing
 
-            const imageId = ids[position]; 
-            const imageElement = document.getElementById(imageId);  
+            const imageId = ids[position];  // Get image ID from array
+            const imageElement = document.getElementById(imageId);  // Get the image element
+
             if (position === lionLocation) {
-                imageElement.src = 'Lion.jpg';  
-                score -= 2;  
-                gameOver = true;  
+                imageElement.src = 'Images/lion.jpeg';  // Change to lion image
+                score -= 2;  // Subtract 2 from score
+                gameOver = true;  // End the game
                 alert('Game Over! You found the lion!');
-            } else if (zebraLocations.includes(position)) {
-                imageElement.src ='Zebra.jpg';  // Change to zebra image
-                score += 4;  // Add 4 to score
+            } else if ([1, 8, 12, 22, 34].includes(position)) {
+                imageElement.src = 'Images/zebra.jpg';  // Change to zebra image
+                score += 2;  // Add 2 to score
             } else {
-                imageElement.src = 'elephant.jpg';  
-                score += 1;  // Add 1 to score
+                imageElement.src = 'Images/elephant.jpg';  // Change to elephant image
             }
 
-            locationsVisited += 1;
-            lastLocation = position;  
-
-            // Update the score and locations checked
-            document.getElementById('score').innerHTML = `<p>Score is ${score}.</p>`;
+            locationsVisited += 1;  // Increment locations visited
             document.getElementById('locations').innerHTML = `<p>Number of locations checked is ${locationsVisited}.</p>`;
+            document.getElementById('score').innerHTML = `<p>Score is ${score}.</p>`;
+
+            // Move lion randomly after each valid click
+            moveLion();
         }
 
-       
+        // Move lion randomly when player clicks
+        function moveLion() {
+            const directions = [-1, 1, -6, 6]; // left, right, up, down
+            let randomMove = directions[Math.floor(Math.random() * 4)];
+            lionLocation = (lionLocation + randomMove + 36) % 36; // Wrap-around grid movement
+        }
+
         function help() {
-            const col = lastLocation % 6;
-            const row = Math.floor(lastLocation / 6);
+            alert("Find the zebras to score points. Don't click the lion!");
+        }
 
-            const lionRow = Math.floor(lionLocation / 6);
-            const lionCol = lionLocation % 6;
+        function restartGame() {
+            score = 0;
+            locationsVisited = 0;
+            gameOver = false;
+            lionLocation = Math.floor(Math.random() * 36);
 
-            // Check 4 closest locations (allow wrap-around)
-            const closestLocations = [
-                (lastLocation + 35) % 36,  
-                (lastLocation + 1) % 36,   
-                (lastLocation + 30) % 36,  
-                (lastLocation + 6) % 36    
-            ];
+            // Reset all images back to tree
+            ids.forEach(id => {
+                document.getElementById(id).src = 'Images/tree.jpg';
+            });
 
-            
-            if (closestLocations.some(loc => zebraLocations.includes(loc))) {
-                document.getElementById('help').innerHTML = `<p>I see stripes.</p>`;
-                return;
-            }
-
-            
-            if (Math.abs(lionRow - row) <= 1 && Math.abs(lionCol - col) <= 1) {
-                document.getElementById('help').innerHTML = `<p>Rawr</p>`;
-                return;
-            }
-
-            
-            document.getElementById('help').innerHTML = `<p>It's grey.</p>`;
+            document.getElementById('locations').innerHTML = `<p>Number of locations checked is zero.</p>`;
+            document.getElementById('score').innerHTML = `<p>Score is zero.</p>`;
         }
     </script>
 </body>
