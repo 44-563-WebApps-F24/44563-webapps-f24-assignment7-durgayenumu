@@ -44,27 +44,23 @@
     // Function to start the countdown
     function startTime() {
       stopTime = undefined; // Reset stop time
-      document.getElementById('stopButton').disabled = false; // Enable Stop Timer button
-      document.getElementById('target').innerHTML = "Your time: --"; // Reset the target text
+      document.getElementById('stopButton').disabled = false; 
+      document.getElementById('target').innerHTML = "Your time: --"; 
 
       for (let i = 0; i < 5; i++) {
         setTimeout(function () {
           document.getElementById('counter').innerHTML = `Count: ${4 - i}`;
         }, i * 1000); // Countdown from 4 to 0
       }
-
-      // Final timeout to check if the user pressed Stop Timer
       setTimeout(function () {
         if (stopTime === undefined) {
-          document.getElementById('target').innerHTML = "Too Slow"; // User did not stop in time
+          document.getElementById('target').innerHTML = "Too Slow"; 
         } else {
           const elapsed = Date.now() - stopTime; // Calculate time elapsed
-          document.getElementById('target').innerHTML = `Time was ${elapsed} ms`; // Display the time
+          document.getElementById('target').innerHTML = `Time was ${elapsed} ms`; 
         }
-      }, 5000); // Wait for 5 seconds before checking
+      }, 5000); 
     }
-
-    // Attach event listeners to the buttons
     document.getElementById('startButton').onclick = startTime;
     document.getElementById('stopButton').onclick = recordTime;
   </script>
