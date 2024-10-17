@@ -166,15 +166,15 @@
             const imageId = ids[position]; 
             const imageElement = document.getElementById(imageId);  
             if (position === lionLocation) {
-                imageElement.src = 'Images\Lion.jpg';  
+                imageElement.src = 'Lion.jpg';  
                 score -= 2;  
                 gameOver = true;  
                 alert('Game Over! You found the lion!');
             } else if (zebraLocations.includes(position)) {
-                imageElement.src ='Images\Zebra.jpg';  // Change to zebra image
+                imageElement.src ='Zebra.jpg';  // Change to zebra image
                 score += 4;  // Add 4 to score
             } else {
-                imageElement.src = 'Images\elephant.jpg';  
+                imageElement.src = 'elephant.jpg';  
                 score += 1;  // Add 1 to score
             }
 
