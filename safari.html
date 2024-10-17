@@ -125,7 +125,8 @@
         const ids = [...Array(36).keys()].map(i => `img${i}`);  // Image IDs (img0 to img35)
         let score = 0;
         let locationsVisited = 0;
-        let lionLocation = Math.floor(Math.random() * 36);  // Random lion position
+
+        const lionLocation = 14;
         let gameOver = false;
 
         // Check function to handle clicks
