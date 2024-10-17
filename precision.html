@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Speed Checking</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style>
+  body {
+      text-align: center;
+      margin: 20px;
+    }
+    #target, #counter {
+      font-size: 24px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<body>
+
+  <h2>Venkata Durga Yenumula speed check</h2>
+  
+  <div id="target">Your time: --</div>
+  <div id="counter">Count: 0</div>
+
+  <button type="button" class="btn btn-primary" id="startButton">Start Timer</button>
+  <button type="button" class="btn btn-danger" id="stopButton" disabled>Stop Timer</button>
+
+  <script>
+    let stopTime;  // Variable to store the time when Stop Timer is pressed
+
+    // Function to record the time when Stop Timer is pressed
+    function recordTime() {
+      stopTime = Date.now();  // Capture the stop time
+      console.log("Stop time:", stopTime);
+    }
+
+    // Function to start the countdown
+    function startTime() {
+      stopTime = undefined; // Reset stop time
+      document.getElementById('stopButton').disabled = false; // Enable Stop Timer button
+      document.getElementById('target').innerHTML = "Your time: --"; // Reset the target text
+
+      for (let i = 0; i < 5; i++) {
+        setTimeout(function () {
+          document.getElementById('counter').innerHTML = `Count: ${4 - i}`;
+        }, i * 1000); // Countdown from 4 to 0
+      }
+
+      // Final timeout to check if the user pressed Stop Timer
+      setTimeout(function () {
+        if (stopTime === undefined) {
+          document.getElementById('target').innerHTML = "Too Slow"; // User did not stop in time
+        } else {
+          const elapsed = Date.now() - stopTime; // Calculate time elapsed
+          document.getElementById('target').innerHTML = `Time was ${elapsed} ms`; // Display the time
+        }
+      }, 5000); // Wait for 5 seconds before checking
+    }
+
+    // Attach event listeners to the buttons
+    document.getElementById('startButton').onclick = startTime;
+    document.getElementById('stopButton').onclick = recordTime;
+  </script>
+
+</body>
+</html>
